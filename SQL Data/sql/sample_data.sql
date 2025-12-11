@@ -220,3 +220,140 @@ INSERT INTO TICKET_COMMENT (
 VALUES ( 6, 4, 7, 'Network latency appears to be originating from the core switch. Running extended diagnostics.',
     SYSDATE - 2.2
     );
+
+# Sample for Data Knowledge_Base_Article 
+INSERT INTO KNOWLEDGE_BASE_ARTICLE (
+    ARTICLE_ID, TITLE, CONTENT, CREATED_AT
+)
+VALUES (
+    1, 'How to Troubleshoot Server Connectivity Issues',
+    'This article provides steps to diagnose server connectivity problems, including ping tests, firewall verification, and service availability checks.',
+    SYSDATE - 10
+);
+
+INSERT INTO KNOWLEDGE_BASE_ARTICLE (
+    ARTICLE_ID, TITLE, CONTENT, CREATED_AT
+)
+VALUES (
+    2,'Resetting a User Password in the Identity Portal',
+    'Follow these steps to reset a user password using the identity management system: navigate to Users, select the account, choose Reset Password, and send temporary credentials.',
+    SYSDATE - 8
+);
+
+INSERT INTO KNOWLEDGE_BASE_ARTICLE (
+    ARTICLE_ID, TITLE, CONTENT, CREATED_AT
+)
+VALUES (
+    3, 'How to Resolve Email Delivery Failures',
+    'Learn how to diagnose outbound email issues by checking message queues, SMTP logs, spam filters, and DNS MX configurations.',
+    SYSDATE - 5
+);
+
+INSERT INTO KNOWLEDGE_BASE_ARTICLE (
+    ARTICLE_ID, TITLE, CONTENT, CREATED_AT
+)
+VALUES (
+    4, 'Application Crash Troubleshooting Guide',
+    'This guide outlines steps to capture application logs, reproduce crashes, check dependency updates, and gather system information for developers.',
+    SYSDATE - 3
+);
+
+INSERT INTO KNOWLEDGE_BASE_ARTICLE (
+    ARTICLE_ID, TITLE, CONTENT, CREATED_AT
+)
+VALUES (5, 'Network Latency and Packet Loss Diagnosis',
+    'This article explains how to identify the cause of network slowness using traceroute, bandwidth monitoring, and switch diagnostics.',
+    SYSDATE - 1
+);
+
+# Sample Data for KB_Keyword
+-- Article 1: Server Connectivity Issues
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (1, 'server', 2);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (2, 'connectivity', 3);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (3, 'network', 1);
+
+
+-- Article 2: Resetting a User Password
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (4, 'password', 2);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (5, 'identity', 2);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (6, 'user', 2);
+
+
+-- Article 3: Email Delivery Failures
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (7, 'email', 3);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (8, 'smtp', 3);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (9, 'delivery', 3);
+
+
+-- Article 4: Application Crash Troubleshooting
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (10, 'application', 4);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (11, 'crash', 4);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (12, 'logs', 4);
+
+
+-- Article 5: Network Latency Diagnosis
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (13, 'latency', 5);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (14, 'packet loss', 5);
+
+INSERT INTO KB_KEYWORD (KEYWORD_ID, KEYWORD, ARTICLE_ID)
+VALUES (15, 'traceroute', 5);
+
+
+# Sample Data for Ticket_Status_History
+    
+INSERT INTO TICKET_STATUS_HISTORY (
+TICKET_STATUS_HISTORY_ID, TICKET_ID,
+FROM_STATUS_ID, TO_STATUS_ID, CHANGE_BY, CHANGE_DATE
+)
+VALUES (1, 1, NULL, 1, 2, SYSDATE - 0.5);
+
+INSERT INTO TICKET_STATUS_HISTORY (
+TICKET_STATUS_HISTORY_ID, TICKET_ID,
+FROM_STATUS_ID, TO_STATUS_ID, CHANGE_BY, CHANGE_DATE
+)
+VALUES (2, 1, 1, 2, 3, SYSDATE - 0.45);
+
+INSERT INTO TICKET_STATUS_HISTORY (
+TICKET_STATUS_HISTORY_ID, TICKET_ID,
+FROM_STATUS_ID, TO_STATUS_ID, CHANGE_BY, CHANGE_DATE
+)
+VALUES (3, 1, 2, 3, 4, SYSDATE - 0.40);
+
+INSERT INTO TICKET_STATUS_HISTORY VALUES (4, 2, NULL, 1, 3, SYSDATE - 1.2);
+
+INSERT INTO TICKET_STATUS_HISTORY VALUES (5, 2, 1, 2, 6, SYSDATE - 1.0);
+
+INSERT INTO TICKET_STATUS_HISTORY VALUES (7, 3, NULL, 1, 5, SYSDATE - 2.2);
+
+INSERT INTO TICKET_STATUS_HISTORY VALUES (9, 4, NULL, 1, 7, SYSDATE - 3.4);
+
+INSERT INTO TICKET_STATUS_HISTORY VALUES (11, 5, NULL, 1, 8, SYSDATE - 5.3);
+
+INSERT INTO TICKET_STATUS_HISTORY VALUES (12, 5, 1, 2, 7, SYSDATE - 5.0);
+
+INSERT INTO TICKET_STATUS_HISTORY VALUES (14, 6, NULL, 1, 2, SYSDATE - 0.25);
+INSERT INTO TICKET_STATUS_HISTORY VALUES (15, 6, 1, 2, 10, SYSDATE - 0.20);
+INSERT INTO TICKET_STATUS_HISTORY VALUES (16, 6, 2, 3, 4, SYSDATE - 0.15);
