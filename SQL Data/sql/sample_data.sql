@@ -177,4 +177,46 @@ VALUES (6, 8, 10, 5, 3, 1,'BrightPets mobile app crash','App Crash',
 
 COMMIT;
 
+#Sample data for Ticket Comment
+INSERT INTO TICKET_COMMENT (
+    COMMENT_ID, TICKET_ID, USER_ID, COMMENT_TEXT, CREATED_AT
+)
+VALUES ( 1, 1, 9,
+    'Reviewed the authentication logs. The server is not responding to pings. Investigating possible hardware failure.',
+    SYSDATE - 0.45
+);
 
+INSERT INTO TICKET_COMMENT (
+    COMMENT_ID, TICKET_ID, USER_ID, COMMENT_TEXT, CREATED_AT
+)
+VALUES (2, 1, 3,
+    'Thanks for the update. This issue is affecting all departments. Please prioritize resolution.',
+    SYSDATE - 0.40
+);
+
+INSERT INTO TICKET_COMMENT (
+    COMMENT_ID, TICKET_ID, USER_ID, COMMENT_TEXT, CREATED_AT
+)
+VALUES (3, 2, 10, 'Mail queue cleared manually. Messages are flowing again, but root cause still under investigation.',
+    SYSDATE - 0.8
+);
+
+INSERT INTO TICKET_COMMENT (COMMENT_ID, TICKET_ID, USER_ID, COMMENT_TEXT, CREATED_AT
+)
+VALUES ( 4, 2, ,'Users confirmed email delivery is working. Awaiting final confirmation before resolving the ticket.',
+    SYSDATE - 0.75
+);
+
+INSERT INTO TICKET_COMMENT (
+    COMMENT_ID, TICKET_ID, USER_ID, COMMENT_TEXT, CREATED_AT
+)
+VALUES ( 5, 3, 10, 'Reproduced the billing calculation bug in the test environment. Logged all error traces for engineering.',
+    SYSDATE - 1.5
+);
+
+INSERT INTO TICKET_COMMENT (
+    COMMENT_ID, TICKET_ID, USER_ID, COMMENT_TEXT, CREATED_AT
+)
+VALUES ( 6, 4, 7, 'Network latency appears to be originating from the core switch. Running extended diagnostics.',
+    SYSDATE - 2.2
+    );
