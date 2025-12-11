@@ -1,0 +1,29 @@
+# 📘 Database Design Documentation
+Help Desk Ticket System – Multi-Tenant Architecture
+
+## 1. Overview
+This database is designed to support a multi-company (multi-tenant) help desk ticket system.  
+Each company can have its own users, tickets, categories, and workflow activity.  
+The database is fully normalized to 3rd Normal Form (3NF) to ensure accuracy, integrity, and scalability.
+
+## 2. ERD Diagram
+The ERD contains the following major entities:
+
+- Company
+- User_Account
+- Priority
+- Status
+- Category
+- Subcategory
+- Ticket
+- Ticket_Comment
+- Ticket_Status_History
+- Knowledge_Base_Article
+- KB_Keyword
+
+These relationships support:
+- Ticket workflow lifecycle  
+- SLA tracking  
+- Categorization  
+- Knowledge base indexing  
+- Multi-company separation  
