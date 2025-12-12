@@ -1,0 +1,29 @@
+// controllers/companyController.js
+const express = require("express");
+const router = express.Router();
+const companyService = require("../services/companyService");
+
+// GET /api/companies
+router.get("/companies", async (req, res) => {
+  try {
+    const companies = await companyService.listCompanies();
+    res.json(companies);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to fetch companies" });
+  }
+});
+
+// POST /api/companies
+router.post("/companies", async (req, res) => {
+  try {
+    const { name, status } = req.body;
+    const newCompany = await companyService.addCompany(name, status);
+    res.status(201).json(newCompany);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ error: err.message });
+  }
+});
+
+module.exports = router;
