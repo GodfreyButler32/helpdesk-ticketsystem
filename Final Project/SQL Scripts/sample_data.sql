@@ -17,7 +17,6 @@ VALUES (7, 'Acme Corp', 'acme.com', 'ACTIVE', DATE '2025-12-10');
 INSERT INTO COMPANY (COMPANY_ID, NAME, DOMAIN, STATUS, CREATED_AT)
 VALUES (8, 'BrightPets', 'brightpets.io', 'ACTIVE', DATE '2025-12-10');
 
-COMMIT;
 
 # Sample Data for User_Account Table
 INSERT INTO USER_ACCOUNT (user_id, company_id, name, contact, role, assigned_to)
@@ -175,7 +174,6 @@ VALUES (6, 8, 10, 5, 3, 1,'BrightPets mobile app crash','App Crash',
     SYSDATE + 3, 8
 );
 
-COMMIT;
 
 #Sample data for Ticket Comment
 INSERT INTO TICKET_COMMENT (
