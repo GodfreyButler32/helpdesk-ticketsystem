@@ -1,1 +1,144 @@
+# Helpdesk System Script for UI Layer
+
+<!UIHelpdesk HTML>
+
+<html>
+
+<head>
+  <title>Create Ticket</title>
+   <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <h1>Help Desk Ticket System</h1>
+  <nav>
+      <a href="create-ticket.html">Create Ticket</a>
+      <a href="tickets.html">View Tickets</a>
+  </nav>
+
+  <p> Godfrey Helpdesk System</p>
+</body>
+
+</html>
+
+# create-ticket.html
+<!UIHelpdesk html>
+<html>
+<head>
+  <title>Create Ticket</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<h2>Create a New Ticket</h2>
+
+<form id="ticketForm">
+  <input type="text" id="title" placeholder="Title" required><br>
+
+  <input type="text" id="subject" placeholder="Subject" required><br>
+
+  <textarea id="description" placeholder="Describe the issue"></textarea><br>
+
+  <button type="submit">Submit Ticket</button>
+</form>
+
+<script src="js/tickets.js"></script>
+</body>
+</html>
+
+<!UIHelpdesk html>
+<html>
+<head>
+  <title>Tickets</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<h2>All Tickets</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody id="ticketTable"></tbody>
+</table>
+
+<script src="js/tickets.js"></script>
+</body>
+</html>
+
+
+# UI JavaScript 
+
+// Create Ticket
+const form = document.getElementById("ticketForm");
+
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const ticket = {
+      company_id: 1,
+      created_by: 1,
+      assigned_to: 2,
+      priority_id: 1,
+      status_id: 1,
+      title: document.getElementById("title").value,
+      subject: document.getElementById("subject").value,
+      description: document.getElementById("description").value,
+      subcategory_id: 1
+    };
+
+    await fetch("http://localhost:3000/tickets", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(ticket)
+    });
+
+    alert("Ticket Created!");
+    form.reset();
+  });
+}
+
+// LOAD TICKETS
+async function loadTickets() {
+  const response = await fetch("http://localhost:3000/tickets");
+  const tickets = await response.json();
+
+  const table = document.getElementById("ticketTable");
+  if (!table) return;
+
+  tickets.forEach(t => {
+    const row = `
+      <tr>
+        <td>${t[0]}</td>
+        <td>${t[6]}</td>
+        <td>${t[4]}</td>
+      </tr>
+    `;
+    table.innerHTML += row;
+  });
+}
+
+loadTickets();
+
+# CCS For Helpdesk System
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+}
+
+input, textarea, button {
+  margin: 8px 0;
+  width: 300px;
+}
+
+table {
+  width: 60%;
+  margin-top: 20px;
+}
 
