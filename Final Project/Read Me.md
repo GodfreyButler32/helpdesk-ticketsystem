@@ -26,20 +26,6 @@ Category and subcategory classification
 
 Internal ticket comments
 
-#
-
-Documentationproject/
-├── docs/
-│   ├── DATABASE_DESIGN.md
-│   ├── SETUP.md
-│   ├── ARCHITECTURE.md
-│   └── USER_GUIDE.md
-├── sql/
-│   ├── schema.sql
-│   ├── sample_data.sql
-│   └── reset.sql
-└── README.md
-
 
 Tech Stack
 • Backend: Node.js, Express
