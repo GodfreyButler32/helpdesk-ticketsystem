@@ -1,0 +1,27 @@
+const oracledb = require("oracledb");
+
+async function connectToOracle() {
+  try {
+    const connection = await oracledb.getConnection({
+      user: "gbutler3486",
+      password: "wx5q6edw",
+      connectString:
+        "(DESCRIPTION=" +
+        "(ADDRESS=(PROTOCOL=TCP)(HOST=oracle.monroeu.edu)(PORT=1521))" +
+        "(CONNECT_DATA=(SERVICE_NAME=oracle.monroecollege.edu))" +
+        ")"
+    });
+
+    console.log(" Connected to Oracle!");
+
+    const result = await connection.execute("SELECT * FROM COMPANY");
+    console.log("Query Result:", result.rows);
+   
+    await connection.close();
+  } catch (err) {
+    console.error(" Oracle Error:", err);
+  }
+}
+
+connectToOracle();
+
