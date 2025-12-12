@@ -1,2 +1,0 @@
-# helpdesk-ticketsystem
-Final Project
