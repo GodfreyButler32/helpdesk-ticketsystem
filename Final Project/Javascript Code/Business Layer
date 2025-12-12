@@ -1,0 +1,26 @@
+// services/companyService.js
+const companyRepo = require("../dal/companyRepo");
+
+async function listCompanies() {
+  const rows = await companyRepo.getAllCompanies();
+  // Optionally map rows into objects with keys
+  return rows.map(r => ({
+    company_id: r[0],
+    company_name: r[1],
+    status: r[2],
+    created_at: r[3]
+  }));
+}
+
+async function addCompany(name, status = "ACTIVE") {
+  if (!name || name.trim().length === 0) {
+    throw new Error("Company name is required.");
+  }
+  const id = await companyRepo.createCompany(name.trim(), status);
+  return { company_id: id, company_name: name.trim(), status };
+}
+
+module.exports = {
+  listCompanies,
+  addCompany
+};
