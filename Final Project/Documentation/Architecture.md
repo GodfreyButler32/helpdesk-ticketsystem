@@ -4,7 +4,7 @@ The backend follows a strict 4-layer architecture:
 
 ## 1. UI Layer
 Handles user interaction and calls API endpoints.
-- HTML, CSS, optional JS
+- HTML, CSS, And JS
 - Sends requests to backend controllers
 
 ## 2. Controller Layer (FastAPI Routes)
@@ -24,7 +24,7 @@ Executes raw SQL queries against Oracle.
 - JavaScript Node.js
 - Oracle SQL Developer database
 - Raw SQL queries only (no ORM)
-- HTML UI
+- HTML & CSS UI
 
 ## Flow
 UI → Controller → Service → DAL → Oracle
